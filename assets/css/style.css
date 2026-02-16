@@ -61,11 +61,16 @@ pre {
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
-    /* For sticky header */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
 }
 
 body {
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+    /* Double protection */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Breadcrumb Divider */

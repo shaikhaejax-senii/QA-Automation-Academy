@@ -140,12 +140,57 @@ function highlightTOC() {
     });
 }
 
+// --- Sidebar Logic (Mobile Slide-out) ---
+function initSidebar() {
+    const toggleBtn = document.getElementById('sidebar-toggle');
+    const closeBtn = document.getElementById('sidebar-close');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    if (!toggleBtn || !sidebar) return;
+
+    function openSidebar() {
+        sidebar.classList.remove('-translate-x-full');
+        if (overlay) overlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeSidebar() {
+        sidebar.classList.add('-translate-x-full');
+        if (overlay) {
+            overlay.classList.add('hidden');
+        }
+        document.body.style.overflow = '';
+    }
+
+    toggleBtn.addEventListener('click', openSidebar);
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeSidebar);
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', closeSidebar);
+    }
+
+    // Close on simple link click (if on mobile)
+    const links = sidebar.querySelectorAll('a');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 1024) { // lg breakpoint
+                closeSidebar();
+            }
+        });
+    });
+}
+
 // --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     loadComponent('header-container', '/components/header.html');
     loadComponent('footer-container', '/components/footer.html');
     initScrollFeatures();
+    initSidebar();
 });
 
 // --- Utility: Copy Code ---
