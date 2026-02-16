@@ -1,0 +1,272 @@
+[
+  {
+    "title": "Java Intro",
+    "description": "Getting Started with Java for QA.",
+    "category": "Java",
+    "url": "/articles/java/java-intro.html"
+  },
+  {
+    "title": "Java Variables",
+    "description": "Data Types and Variables in Java.",
+    "category": "Java",
+    "url": "/articles/java/java-variables.html"
+  },
+  {
+    "title": "Java Loops",
+    "description": "For, While, and Do-While loops.",
+    "category": "Java",
+    "url": "/articles/java/java-loops.html"
+  },
+  {
+    "title": "Java OOPs",
+    "description": "Object Oriented Programming concepts.",
+    "category": "Java",
+    "url": "/articles/java/java-oops.html"
+  },
+  {
+    "title": "Java Strings",
+    "description": "String manipulation and methods.",
+    "category": "Java",
+    "url": "/articles/java/java-strings.html"
+  },
+  {
+    "title": "Java Collections",
+    "description": "List, Set, Map and ArrayList.",
+    "category": "Java",
+    "url": "/articles/java/java-collections.html"
+  },
+  {
+    "title": "Java Exception Handling",
+    "description": "Try, Catch, Finally and Throw.",
+    "category": "Java",
+    "url": "/articles/java/java-exception-handling.html"
+  },
+  {
+    "title": "Java File Handling",
+    "description": "Reading and Writing files.",
+    "category": "Java",
+    "url": "/articles/java/java-file-handling.html"
+  },
+  {
+    "title": "Java Interview Questions",
+    "description": "Top 20 Java Interview Questions.",
+    "category": "Java",
+    "url": "/articles/java/java-interview-questions.html"
+  },
+  {
+    "title": "Selenium Locators",
+    "description": "ID, Name, XPath, CSS Selectors.",
+    "category": "Selenium",
+    "url": "/articles/selenium/selenium-locators.html"
+  },
+  {
+    "title": "Selenium Waits",
+    "description": "Implicit, Explicit, and Fluent Waits.",
+    "category": "Selenium",
+    "url": "/articles/selenium/selenium-waits.html"
+  },
+  {
+    "title": "Selenium WebElements",
+    "description": "Common commands: click, sendKeys, getText.",
+    "category": "Selenium",
+    "url": "/articles/selenium/selenium-webelements.html"
+  },
+  {
+    "title": "Selenium Actions",
+    "description": "Mouse and Keyboard events.",
+    "category": "Selenium",
+    "url": "/articles/selenium/selenium-actions.html"
+  },
+  {
+    "title": "Selenium POM",
+    "description": "Page Object Model Design Pattern.",
+    "category": "Selenium",
+    "url": "/articles/selenium/selenium-pom.html"
+  },
+  {
+    "title": "Selenium TestNG",
+    "description": "TestNG Framework, Annotations, Assertions.",
+    "category": "Selenium",
+    "url": "/articles/selenium/selenium-testng.html"
+  },
+  {
+    "title": "Selenium Grid",
+    "description": "Distributed testing with Grid.",
+    "category": "Selenium",
+    "url": "/articles/selenium/selenium-grid.html"
+  },
+  {
+    "title": "Selenium JS Executor",
+    "description": "Executing JavaScript commands.",
+    "category": "Selenium",
+    "url": "/articles/selenium/selenium-js-executor.html"
+  },
+  {
+    "title": "Selenium Interview Questions",
+    "description": "Top 20 Selenium Interview Questions.",
+    "category": "Selenium",
+    "url": "/articles/selenium/selenium-interview-questions.html"
+  },
+  {
+    "title": "Playwright Setup",
+    "description": "Installation and Configuration.",
+    "category": "Playwright",
+    "url": "/articles/playwright/playwright-setup.html"
+  },
+  {
+    "title": "Playwright Selectors",
+    "description": "Text, CSS, XPath selectors.",
+    "category": "Playwright",
+    "url": "/articles/playwright/playwright-selectors.html"
+  },
+  {
+    "title": "Playwright Assertions",
+    "description": "Auto-retrying assertions.",
+    "category": "Playwright",
+    "url": "/articles/playwright/playwright-assertions.html"
+  },
+  {
+    "title": "Playwright API Testing",
+    "description": "Testing REST APIs with Playwright.",
+    "category": "Playwright",
+    "url": "/articles/playwright/playwright-api-testing.html"
+  },
+  {
+    "title": "Playwright Codegen",
+    "description": "Record and Playback tool.",
+    "category": "Playwright",
+    "url": "/articles/playwright/playwright-codegen.html"
+  },
+  {
+    "title": "Playwright Auth",
+    "description": "Reusing Authentication State.",
+    "category": "Playwright",
+    "url": "/articles/playwright/playwright-auth.html"
+  },
+  {
+    "title": "Playwright Network",
+    "description": "Network Interception and Mocking.",
+    "category": "Playwright",
+    "url": "/articles/playwright/playwright-network.html"
+  },
+  {
+    "title": "Playwright Parallel",
+    "description": "Parallel Execution of tests.",
+    "category": "Playwright",
+    "url": "/articles/playwright/playwright-parallel.html"
+  },
+  {
+    "title": "Playwright Interview Questions",
+    "description": "Top 20 Playwright Interview Questions.",
+    "category": "Playwright",
+    "url": "/articles/playwright/playwright-interview-questions.html"
+  },
+  {
+    "title": "UFT Intro",
+    "description": "Introduction to UFT One.",
+    "category": "UFT",
+    "url": "/articles/uft/uft-intro.html"
+  },
+  {
+    "title": "UFT VBScript",
+    "description": "VBScript Basics for UFT.",
+    "category": "UFT",
+    "url": "/articles/uft/uft-vbscript-basics.html"
+  },
+  {
+    "title": "UFT Object Repository",
+    "description": "Local and Shared Object Repositories.",
+    "category": "UFT",
+    "url": "/articles/uft/uft-object-repository.html"
+  },
+  {
+    "title": "UFT Actions",
+    "description": "Actions and Function Libraries.",
+    "category": "UFT",
+    "url": "/articles/uft/uft-actions.html"
+  },
+  {
+    "title": "UFT Data Driven",
+    "description": "Data Tables and Parameterization.",
+    "category": "UFT",
+    "url": "/articles/uft/uft-data-driven.html"
+  },
+  {
+    "title": "UFT Checkpoints",
+    "description": "Validating Results.",
+    "category": "UFT",
+    "url": "/articles/uft/uft-checkpoints.html"
+  },
+  {
+    "title": "UFT Descriptive Programming",
+    "description": "Bypassing Object Repository.",
+    "category": "UFT",
+    "url": "/articles/uft/uft-descriptive-programming.html"
+  },
+  {
+    "title": "UFT Recovery Scenarios",
+    "description": "Handling Errors and Popups.",
+    "category": "UFT",
+    "url": "/articles/uft/uft-recovery-scenarios.html"
+  },
+  {
+    "title": "UFT Interview Questions",
+    "description": "Top 20 UFT Interview Questions.",
+    "category": "UFT",
+    "url": "/articles/uft/uft-interview-questions.html"
+  },
+  {
+    "title": "TS Intro",
+    "description": "Introduction to TypeScript.",
+    "category": "TypeScript",
+    "url": "/articles/typescript/typescript-intro.html"
+  },
+  {
+    "title": "TS Types",
+    "description": "Basic Types and Interfaces.",
+    "category": "TypeScript",
+    "url": "/articles/typescript/typescript-types.html"
+  },
+  {
+    "title": "TS Functions",
+    "description": "Typed Functions and Arrow syntax.",
+    "category": "TypeScript",
+    "url": "/articles/typescript/typescript-functions.html"
+  },
+  {
+    "title": "TS Classes",
+    "description": "Classes and Inheritance.",
+    "category": "TypeScript",
+    "url": "/articles/typescript/typescript-classes.html"
+  },
+  {
+    "title": "TS Modules",
+    "description": "Import and Export.",
+    "category": "TypeScript",
+    "url": "/articles/typescript/typescript-modules.html"
+  },
+  {
+    "title": "TS Generics",
+    "description": "Reusable components with Generics.",
+    "category": "TypeScript",
+    "url": "/articles/typescript/typescript-generics.html"
+  },
+  {
+    "title": "TS Async",
+    "description": "Async/Await and Promises.",
+    "category": "TypeScript",
+    "url": "/articles/typescript/typescript-async.html"
+  },
+  {
+    "title": "TS Config",
+    "description": "Understanding tsconfig.json.",
+    "category": "TypeScript",
+    "url": "/articles/typescript/typescript-config.html"
+  },
+  {
+    "title": "TS Interview Questions",
+    "description": "Top 20 TypeScript Interview Questions.",
+    "category": "TypeScript",
+    "url": "/articles/typescript/typescript-interview-questions.html"
+  }
+]

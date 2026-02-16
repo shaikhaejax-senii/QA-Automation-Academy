@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 20 UFT (QTP) Interview Questions - QA Automation Academy</title>
+    <meta name="description"
+        content="Top 20 UFT interview questions. Object Repository, Descriptive Programming, Ordinal Identifiers, and Smart Identification.">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+
+    <div id="header-container"></div>
+
+    <div class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex items-start gap-8">
+
+        <!-- Sidebar Toggle (Mobile) -->
+        <div class="lg:hidden w-full mb-4">
+            <a href="/category/uft.html"
+                class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <svg class="mr-1 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to UFT
+            </a>
+        </div>
+
+        <!-- Main Content -->
+        <main class="flex-1 min-w-0 prose dark:prose-invert max-w-none">
+
+            <nav class="flex mb-4" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-4">
+                    <li><a href="/" class="text-gray-400 hover:text-gray-500">Home</a></li>
+                    <li class="breadcrumb-divider"></li>
+                    <li><a href="/category/uft.html"
+                            class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">UFT
+                            One</a></li>
+                    <li class="breadcrumb-divider"></li>
+                    <li><span class="text-gray-900 dark:text-white font-medium">Interview Questions</span></li>
+                </ol>
+            </nav>
+
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Top 20 UFT (QTP) Interview Questions</h1>
+
+            <p class="lead text-xl text-gray-600 dark:text-gray-300 mb-8">
+                Questions covering Logic, Object Identification, and Frameworks.
+            </p>
+
+            <div class="space-y-8">
+                <!-- Q1 -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border-l-4 border-blue-600">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">1. What is the difference between
+                        Shared and Local Object Repository?</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Local is saved within the action files and accessible only to that action. Shared is saved as a
+                        `.tsr` file and can be accessed by multiple tests/actions.
+                    </p>
+                </div>
+
+                <!-- Q2 -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border-l-4 border-blue-600">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">2. What is Descriptive Programming?
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Technique to identify objects directly using property-value pairs in the script without storing
+                        them in the Object Repository.
+                    </p>
+                </div>
+
+                <!-- Q3 -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border-l-4 border-blue-600">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">3. What is Smart Identification?
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        When UFT cannot find an object using mandatory and assistive properties, it uses Smart
+                        Identification (if enabled) to find the most likely candidate based on fuzzy matching logic. It
+                        makes tests slower, so often disabled.
+                    </p>
+                </div>
+
+                <!-- Q4 -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border-l-4 border-blue-600">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">4. How to call a function from an
+                        external library?</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Save the function in a `.qfl` or `.vbs` file. Associate it via `File > Settings > Resources`.
+                        Then call the function name directly in the script.
+                    </p>
+                </div>
+
+                <!-- Q5 -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border-l-4 border-blue-600">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">5. What are Ordinal Identifiers?
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Used when multiple objects matches the properties. Types: Index (based on appearance order),
+                        Location (x,y), CreationTime (for Browsers).
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <p class="text-gray-500 italic">...More questions coming soon!</p>
+            </div>
+
+            <div class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex justify-between">
+                <div>
+                    <a href="/articles/uft/uft-recovery-scenarios.html"
+                        class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center">
+                        <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+                        </svg>
+                        Previous: Recovery Scenarios
+                    </a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

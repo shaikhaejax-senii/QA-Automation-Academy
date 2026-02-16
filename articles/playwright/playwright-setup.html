@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playwright Setup with TypeScript - QA Automation Academy</title>
+    <meta name="description"
+        content="Step by step guide to installing Playwright, setting up TypeScript, and running your first test.">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+
+    <div id="header-container"></div>
+
+    <div class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex items-start gap-8">
+
+        <!-- Sidebar Toggle (Mobile) -->
+        <div class="lg:hidden w-full mb-4">
+            <a href="/category/playwright.html"
+                class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <svg class="mr-1 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Playwright
+            </a>
+        </div>
+
+        <!-- TOC Sidebar (Sticky) -->
+        <aside class="hidden lg:block w-64 flex-shrink-0 sticky top-24">
+            <nav class="space-y-1" aria-label="Table of Contents">
+                <h4 class="px-3 text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
+                    On this page
+                </h4>
+                <a href="#prerequisites"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Prerequisites
+                </a>
+                <a href="#installation"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Installation
+                </a>
+                <a href="#first-test"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Your First Test
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content (Article) -->
+        <main class="flex-1 min-w-0 prose dark:prose-invert max-w-none">
+
+            <!-- Breadcrumbs -->
+            <nav class="flex mb-4" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-4">
+                    <li>
+                        <div>
+                            <a href="/" class="text-gray-400 hover:text-gray-500">
+                                <svg class="flex-shrink-0 h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                                </svg>
+                                <span class="sr-only">Home</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="flex-shrink-0 h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20"
+                                aria-hidden="true">
+                                <path
+                                    d="M5.555 17.555A1 1 0 014.555 17L4.555 3a1 1 0 011.555-.832l11 5a1 1 0 010 1.664l-11 5z"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <a href="/category/playwright.html"
+                                class="ml-4 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">Playwright</a>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Playwright Setup with TypeScript</h1>
+
+            <p class="lead text-xl text-gray-600 dark:text-gray-300 mb-8">
+                Playwright has shaken up the automation world. It's fast, reliable and handles modern web constructs
+                (like shadow DOM and frames) out of the box.
+            </p>
+
+            <hr class="my-8 border-gray-200 dark:border-gray-800">
+
+            <h2 id="prerequisites" class="text-2xl font-bold text-gray-900 dark:text-white mt-12 mb-4 scroll-mt-24">
+                Prerequisites</h2>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+                <li><strong>Node.js</strong>: Make sure you have Node.js 14+ installed.</li>
+                <li><strong>Code Editor</strong>: VS Code is highly recommended for its Playwright extension.</li>
+            </ul>
+
+            <h2 id="installation" class="text-2xl font-bold text-gray-900 dark:text-white mt-12 mb-4 scroll-mt-24">
+                Installation</h2>
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                Run the init command. This will scaffold a new project and download the browsers.
+            </p>
+
+            <div class="relative group my-6">
+                <button onclick="copyCode(this)" class="copy-btn">Copy</button>
+                <pre
+                    class="bg-gray-800 text-gray-100 overflow-x-auto rounded-lg p-4"><code class="language-bash">npm init playwright@latest</code></pre>
+            </div>
+
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                You'll be asked a few questions:
+            </p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+                <li>TypeScript or JavaScript? -> <strong>TypeScript</strong></li>
+                <li>Folder for tests? -> <strong>tests</strong></li>
+                <li>Add a GitHub Actions workflow? -> <strong>Yes/No</strong></li>
+                <li>Install Playwright browsers? -> <strong>Yes</strong></li>
+            </ul>
+
+            <h2 id="first-test" class="text-2xl font-bold text-gray-900 dark:text-white mt-12 mb-4 scroll-mt-24">Your
+                First Test</h2>
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                Create a file `tests/example.spec.ts`:
+            </p>
+            <div class="relative group my-6">
+                <button onclick="copyCode(this)" class="copy-btn">Copy</button>
+                <pre class="bg-gray-800 text-gray-100 overflow-x-auto rounded-lg p-4"><code class="language-typescript">import { test, expect } from '@playwright/test';
+
+test('has title', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+  // Expect a title "to contain" a substring.
+  await expect(page).toHaveTitle(/Playwright/);
+});</code></pre>
+            </div>
+
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                Run the test:
+            </p>
+            <div class="relative group my-6">
+                <button onclick="copyCode(this)" class="copy-btn">Copy</button>
+                <pre
+                    class="bg-gray-800 text-gray-100 overflow-x-auto rounded-lg p-4"><code class="language-bash">npx playwright test</code></pre>
+            </div>
+
+            <!-- Next/Prev Navigation -->
+            <div class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex justify-between">
+                <div>
+                    <!-- No prev -->
+                </div>
+                <div>
+                    <a href="#"
+                        class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center">
+                        Next: Selectors
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

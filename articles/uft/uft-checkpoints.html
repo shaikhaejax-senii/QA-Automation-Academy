@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFT Checkpoints and Output Values - QA Automation Academy</title>
+    <meta name="description"
+        content="Validating expected results in UFT. Standard, Text, Bitmap, and Database checkpoints. Using Output Values.">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+
+    <div id="header-container"></div>
+
+    <div class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex items-start gap-8">
+
+        <!-- Sidebar Toggle (Mobile) -->
+        <div class="lg:hidden w-full mb-4">
+            <a href="/category/uft.html"
+                class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <svg class="mr-1 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to UFT
+            </a>
+        </div>
+
+        <!-- TOC Sidebar (Sticky) -->
+        <aside class="hidden lg:block w-64 flex-shrink-0 sticky top-24">
+            <nav class="space-y-1" aria-label="Table of Contents">
+                <h4 class="px-3 text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
+                    On this page
+                </h4>
+                <a href="#standard"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Standard Checkpoint
+                </a>
+                <a href="#code"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    VB Script Validation
+                </a>
+                <a href="#output"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Output Values
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content (Article) -->
+        <main class="flex-1 min-w-0 prose dark:prose-invert max-w-none">
+
+            <nav class="flex mb-4" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-4">
+                    <li><a href="/" class="text-gray-400 hover:text-gray-500">Home</a></li>
+                    <li class="breadcrumb-divider"></li>
+                    <li><a href="/category/uft.html"
+                            class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">UFT
+                            One</a></li>
+                    <li class="breadcrumb-divider"></li>
+                    <li><span class="text-gray-900 dark:text-white font-medium">Checkpoints</span></li>
+                </ol>
+            </nav>
+
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Checkpoints & Output Values</h1>
+
+            <p class="lead text-xl text-gray-600 dark:text-gray-300 mb-8">
+                A "Checkpoint" is UFT's term for assertion. It verifies if Actual Result matches Expected Result.
+            </p>
+
+            <h2 id="standard">Standard Checkpoint</h2>
+            <p>
+                Checks properties of an object (e.g., verify button "Submit" is enabled).
+                <br><em>Insert > Checkpoint > Standard Checkpoint</em>
+            </p>
+
+            <h2 id="code">Validation via VBScript (Reporter.ReportEvent)</h2>
+            <p>
+                Most pros prefer writing code over using recording options.
+            </p>
+            <div class="relative group my-6">
+                <button onclick="copyCode(this)" class="copy-btn">Copy</button>
+                <pre class="bg-gray-800 text-gray-100 overflow-x-auto rounded-lg p-4"><code class="language-vbscript">If Browser("B").Page("P").WebButton("Submit").Exist(5) Then
+    Reporter.ReportEvent micPass, "Submit Button", "Button exists."
+Else
+    Reporter.ReportEvent micFail, "Submit Button", "Button missing."
+End If</code></pre>
+            </div>
+
+            <h2 id="output">Output Values</h2>
+            <p>
+                Capturing a value from the application (e.g., Order ID generated) and storing it in DataTable for later
+                use.
+            </p>
+
+            <div class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex justify-between">
+                <div>
+                    <a href="/articles/uft/uft-data-driven.html"
+                        class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center">
+                        <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+                        </svg>
+                        Previous: Data Driven
+                    </a>
+                </div>
+                <div>
+                    <a href="/articles/uft/uft-descriptive-programming.html"
+                        class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center">
+                        Next: Descriptive Programming
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

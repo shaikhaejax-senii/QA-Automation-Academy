@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Collections Framework - QA Automation Academy</title>
+    <meta name="description"
+        content="Master Java Collections. Difference between List, Set, and Map. When to use ArrayList vs LinkedList in Automation.">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+
+    <div id="header-container"></div>
+
+    <div class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex items-start gap-8">
+
+        <!-- Sidebar Toggle (Mobile) -->
+        <div class="lg:hidden w-full mb-4">
+            <a href="/category/java.html"
+                class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <svg class="mr-1 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Java
+            </a>
+        </div>
+
+        <!-- TOC Sidebar (Sticky) -->
+        <aside class="hidden lg:block w-64 flex-shrink-0 sticky top-24">
+            <nav class="space-y-1" aria-label="Table of Contents">
+                <h4 class="px-3 text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
+                    On this page
+                </h4>
+                <a href="#intro"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Hierarchy
+                </a>
+                <a href="#list"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    List Interface
+                </a>
+                <a href="#set"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Set Interface
+                </a>
+                <a href="#map"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Map Interface
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content (Article) -->
+        <main class="flex-1 min-w-0 prose dark:prose-invert max-w-none">
+
+            <nav class="flex mb-4" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-4">
+                    <li><a href="/" class="text-gray-400 hover:text-gray-500">Home</a></li>
+                    <li class="breadcrumb-divider"></li>
+                    <li><a href="/category/java.html"
+                            class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">Java</a>
+                    </li>
+                    <li class="breadcrumb-divider"></li>
+                    <li><span class="text-gray-900 dark:text-white font-medium">Collections</span></li>
+                </ol>
+            </nav>
+
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Java Collections Framework</h1>
+
+            <p class="lead text-xl text-gray-600 dark:text-gray-300 mb-8">
+                Handling groups of objects is central to testing. Whether it's a list of dropdown options, a set of
+                window handles, or a map of test data, Collections are everywhere.
+            </p>
+
+            <h2 id="intro">Hierarchy</h2>
+            <p>The root interface is `Collection`. However, in automation, we mostly care about 3 main interfaces:</p>
+            <ul class="list-disc pl-5 space-y-2">
+                <li><strong>List</strong>: Ordered, allows duplicates.</li>
+                <li><strong>Set</strong>: Unordered, unique elements only.</li>
+                <li><strong>Map</strong>: Key-Value pairs (Note: Does not extend Collection interface).</li>
+            </ul>
+
+            <h2 id="list">List Interface</h2>
+            <p><strong>ArrayList</strong> is the most used implementation. It's dynamic, fast for reading.</p>
+            <p><strong>Automation Use Case:</strong> Storing a list of WebElements found by
+                `driver.findElements(By.xpath("//a"))`.</p>
+
+            <div class="relative group my-6">
+                <button onclick="copyCode(this)" class="copy-btn">Copy</button>
+                <pre class="bg-gray-800 text-gray-100 overflow-x-auto rounded-lg p-4"><code class="language-java">List<String> names = new ArrayList<>();
+names.add("Alice");
+names.add("Bob");
+names.add("Alice"); // Duplicates allowed
+
+// Iterating
+for(String name : names) {
+    System.out.println(name);
+}</code></pre>
+            </div>
+
+            <h2 id="set">Set Interface</h2>
+            <p><strong>HashSet</strong> is the most common. It stores unique values.</p>
+            <p><strong>Automation Use Case:</strong> Handling Window Handles. Selenium returns window handles as a Set
+                because each window ID must be unique.</p>
+
+            <div class="relative group my-6">
+                <button onclick="copyCode(this)" class="copy-btn">Copy</button>
+                <pre class="bg-gray-800 text-gray-100 overflow-x-auto rounded-lg p-4"><code class="language-java">Set<String> handles = driver.getWindowHandles();
+
+for(String handle : handles) {
+    driver.switchTo().window(handle);
+}</code></pre>
+            </div>
+
+            <h2 id="map">Map Interface</h2>
+            <p><strong>HashMap</strong> stores data in Key-Value pairs.</p>
+            <p><strong>Automation Use Case:</strong> Storing Test Data (e.g., loaded from Excel or JSON) where column
+                header is Key and cell value is Value.</p>
+
+            <div class="relative group my-6">
+                <button onclick="copyCode(this)" class="copy-btn">Copy</button>
+                <pre class="bg-gray-800 text-gray-100 overflow-x-auto rounded-lg p-4"><code class="language-java">Map<String, String> userData = new HashMap<>();
+userData.put("username", "admin");
+userData.put("password", "12345");
+
+System.out.println(userData.get("username"));</code></pre>
+            </div>
+
+            <h2 id="interview">Interview Questions</h2>
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border-l-4 border-blue-600 my-6">
+                <ul class="space-y-4">
+                    <li><strong>Q: Difference between Array and ArrayList?</strong><br> Array is fixed size, ArrayList
+                        is dynamic.</li>
+                    <li><strong>Q: Difference between HashMap and HashTable?</strong><br> HashMap is non-synchronized
+                        and allows null keys/values. HashTable is synchronized (slow) and doesn't allow nulls.</li>
+                    <li><strong>Q: How to remove duplicates from a List?</strong><br> Convert it to a HashSet:
+                        `Set&lt;String&gt; s = new HashSet&lt;&gt;(myList);`</li>
+                </ul>
+            </div>
+
+            <div class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex justify-between">
+                <div>
+                    <a href="/articles/java/java-oops.html"
+                        class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center">
+                        <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+                        </svg>
+                        Previous: OOP Concepts
+                    </a>
+                </div>
+                <div>
+                    <a href="/articles/java/java-exception-handling.html"
+                        class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center">
+                        Next: Exception Handling
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

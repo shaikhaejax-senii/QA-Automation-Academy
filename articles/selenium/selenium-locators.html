@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Selenium Locators - QA Automation Academy</title>
+    <meta name="description"
+        content="Stop using brittle XPaths. Learn how to write robust custom XPath and CSS Selectors for Selenium WebDriver.">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+
+    <div id="header-container"></div>
+
+    <div class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex items-start gap-8">
+
+        <!-- Sidebar Toggle (Mobile) -->
+        <div class="lg:hidden w-full mb-4">
+            <a href="/category/selenium.html"
+                class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <svg class="mr-1 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Selenium
+            </a>
+        </div>
+
+        <!-- TOC Sidebar (Sticky) -->
+        <aside class="hidden lg:block w-64 flex-shrink-0 sticky top-24">
+            <nav class="space-y-1" aria-label="Table of Contents">
+                <h4 class="px-3 text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
+                    On this page
+                </h4>
+                <a href="#strategies"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Locator Strategies
+                </a>
+                <a href="#xpath"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Custom XPath
+                </a>
+                <a href="#css"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    CSS Selectors
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content (Article) -->
+        <main class="flex-1 min-w-0 prose dark:prose-invert max-w-none">
+
+            <!-- Breadcrumbs -->
+            <nav class="flex mb-4" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-4">
+                    <li>
+                        <div>
+                            <a href="/" class="text-gray-400 hover:text-gray-500">
+                                <svg class="flex-shrink-0 h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                                </svg>
+                                <span class="sr-only">Home</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="flex-shrink-0 h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20"
+                                aria-hidden="true">
+                                <path
+                                    d="M5.555 17.555A1 1 0 014.555 17L4.555 3a1 1 0 011.555-.832l11 5a1 1 0 010 1.664l-11 5z"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <a href="/category/selenium.html"
+                                class="ml-4 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">Selenium</a>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Mastering Selenium Locators: XPath vs CSS
+            </h1>
+
+            <p class="lead text-xl text-gray-600 dark:text-gray-300 mb-8">
+                The most common reason for flaky tests is bad locators. If you rely on right-click -> "Copy XPath", your
+                tests will fail. Here is how to write robust locators.
+            </p>
+
+            <hr class="my-8 border-gray-200 dark:border-gray-800">
+
+            <h2 id="strategies" class="text-2xl font-bold text-gray-900 dark:text-white mt-12 mb-4 scroll-mt-24">Locator
+                Strategies</h2>
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                Selenium offers 8 locator strategies. You should prioritize them in this order:
+            </p>
+            <ol class="list-decimal pl-5 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+                <li><strong>ID</strong>: Fastest and most unique.</li>
+                <li><strong>Name</strong>: Good for form elements.</li>
+                <li><strong>CSS Selector</strong>: Fast, readable, and powerful.</li>
+                <li><strong>XPath</strong>: Most flexible, capable of traversing up the DOM.</li>
+            </ol>
+
+            <h2 id="xpath" class="text-2xl font-bold text-gray-900 dark:text-white mt-12 mb-4 scroll-mt-24">Writing
+                Custom XPath</h2>
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                XPath allows you to find elements by their attributes, text, or relationship to other elements.
+            </p>
+
+            <div class="relative group my-6">
+                <button onclick="copyCode(this)" class="copy-btn">Copy</button>
+                <pre class="bg-gray-800 text-gray-100 overflow-x-auto rounded-lg p-4"><code class="language-java">// By Attribute
+driver.findElement(By.xpath("//input[@data-testid='submit-btn']"));
+
+// By Text Contains
+driver.findElement(By.xpath("//button[contains(text(), 'Log In')]"));
+
+// Parent to Child
+driver.findElement(By.xpath("//div[@class='form-group']//input"));</code></pre>
+            </div>
+
+            <h2 id="css" class="text-2xl font-bold text-gray-900 dark:text-white mt-12 mb-4 scroll-mt-24">CSS Selectors
+            </h2>
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                CSS selectors are natively supported by browsers and are generally faster than XPath.
+            </p>
+            <div class="relative group my-6">
+                <button onclick="copyCode(this)" class="copy-btn">Copy</button>
+                <pre class="bg-gray-800 text-gray-100 overflow-x-auto rounded-lg p-4"><code class="language-java">// ID
+driver.findElement(By.cssSelector("#submit-btn"));
+
+// Class
+driver.findElement(By.cssSelector(".primary-btn"));
+
+// Attribute
+driver.findElement(By.cssSelector("input[name='email']"));</code></pre>
+            </div>
+
+            <!-- Next/Prev Navigation -->
+            <div class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex justify-between">
+                <div>
+                    <!-- No prev -->
+                </div>
+                <div>
+                    <a href="#"
+                        class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center">
+                        Next: Wait Commands
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recovery Scenarios in UFT - QA Automation Academy</title>
+    <meta name="description"
+        content="Handling unexpected errors in UFT. Popups, Object not found, and Application crash handling with Recovery Scenario Manager.">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+
+    <div id="header-container"></div>
+
+    <div class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex items-start gap-8">
+
+        <!-- Sidebar Toggle (Mobile) -->
+        <div class="lg:hidden w-full mb-4">
+            <a href="/category/uft.html"
+                class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <svg class="mr-1 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to UFT
+            </a>
+        </div>
+
+        <!-- Main Content (Article) -->
+        <main class="flex-1 min-w-0 prose dark:prose-invert max-w-none">
+
+            <nav class="flex mb-4" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-4">
+                    <li><a href="/" class="text-gray-400 hover:text-gray-500">Home</a></li>
+                    <li class="breadcrumb-divider"></li>
+                    <li><a href="/category/uft.html"
+                            class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">UFT
+                            One</a></li>
+                    <li class="breadcrumb-divider"></li>
+                    <li><span class="text-gray-900 dark:text-white font-medium">Recovery Scenarios</span></li>
+                </ol>
+            </nav>
+
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Recovery Scenario Manager</h1>
+
+            <p class="lead text-xl text-gray-600 dark:text-gray-300 mb-8">
+                Exceptions happen. A popup might appear, or the application might crash. Recovery Scenarios allow the
+                test to continue instead of halting execution.
+            </p>
+
+            <h2 id="triggers">Triggers</h2>
+            <p>UFT can detect the following events:</p>
+            <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Popup Window:</strong> An unexpected dialog box.</li>
+                <li><strong>Object State:</strong> An object is disabled or missing.</li>
+                <li><strong>Test Run Error:</strong> Any VBScript runtime error.</li>
+                <li><strong>Application Crash:</strong> The app process terminates.</li>
+            </ul>
+
+            <h2 id="recovery">Recovery Operations</h2>
+            <p>Once triggered, UFT can perform:</p>
+            <ul class="list-disc pl-5 space-y-2">
+                <li>Keyboard/Mouse click (e.g., press ESC or click Close).</li>
+                <li>Close Application process.</li>
+                <li>Function Call (Call a custom VBScript function to handle complex logic).</li>
+                <li>Restart Microsoft Windows.</li>
+            </ul>
+
+            <h2 id="onerror">On Error Resume Next</h2>
+            <p>
+                For purely script-level error handling, you can use the VBScript statement:
+            </p>
+            <div class="relative group my-6">
+                <button onclick="copyCode(this)" class="copy-btn">Copy</button>
+                <pre class="bg-gray-800 text-gray-100 overflow-x-auto rounded-lg p-4"><code class="language-vbscript">On Error Resume Next
+' Risky code
+x = 1 / 0
+If Err.Number <> 0 Then
+    Print "Error Occurred: " & Err.Description
+    Err.Clear
+End If
+On Error GoTo 0</code></pre>
+            </div>
+
+            <div class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex justify-between">
+                <div>
+                    <a href="/articles/uft/uft-descriptive-programming.html"
+                        class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center">
+                        <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+                        </svg>
+                        Previous: Descriptive Programming
+                    </a>
+                </div>
+                <div>
+                    <a href="/articles/uft/uft-interview-questions.html"
+                        class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center">
+                        Next: Interview Questions
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

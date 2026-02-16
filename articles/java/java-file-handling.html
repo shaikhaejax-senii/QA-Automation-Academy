@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java File Handling for QA - QA Automation Academy</title>
+    <meta name="description"
+        content="Reading and Writing files in Java. Properties file, CSV, and Excel handling for automation frameworks.">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+
+    <div id="header-container"></div>
+
+    <div class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex items-start gap-8">
+
+        <!-- Sidebar Toggle (Mobile) -->
+        <div class="lg:hidden w-full mb-4">
+            <a href="/category/java.html"
+                class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <svg class="mr-1 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Java
+            </a>
+        </div>
+
+        <!-- TOC Sidebar (Sticky) -->
+        <aside class="hidden lg:block w-64 flex-shrink-0 sticky top-24">
+            <nav class="space-y-1" aria-label="Table of Contents">
+                <h4 class="px-3 text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
+                    On this page
+                </h4>
+                <a href="#properties"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Properties Files
+                </a>
+                <a href="#reading"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Reading Text/CSV
+                </a>
+                <a href="#excel"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Excel (Apache POI)
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content (Article) -->
+        <main class="flex-1 min-w-0 prose dark:prose-invert max-w-none">
+
+            <nav class="flex mb-4" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-4">
+                    <li><a href="/" class="text-gray-400 hover:text-gray-500">Home</a></li>
+                    <li class="breadcrumb-divider"></li>
+                    <li><a href="/category/java.html"
+                            class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">Java</a>
+                    </li>
+                    <li class="breadcrumb-divider"></li>
+                    <li><span class="text-gray-900 dark:text-white font-medium">File Handling</span></li>
+                </ol>
+            </nav>
+
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">File Handling for Test Automation</h1>
+
+            <p class="lead text-xl text-gray-600 dark:text-gray-300 mb-8">
+                Automation frameworks rely heavily on external files for configuration (URL, browser type) and test data
+                (Excel sheets). Java provides robust IO capabilities.
+            </p>
+
+            <h2 id="properties">Reading Properties Files</h2>
+            <p>Config files (`config.properties`) are the standard way to store Key-Value pairs like environment URLs.
+            </p>
+
+            <div class="relative group my-6">
+                <button onclick="copyCode(this)" class="copy-btn">Copy</button>
+                <pre class="bg-gray-800 text-gray-100 overflow-x-auto rounded-lg p-4"><code class="language-java">Properties prop = new Properties();
+FileInputStream fis = new FileInputStream("config.properties");
+prop.load(fis);
+
+String url = prop.getProperty("baseUrl");
+System.out.println(url);</code></pre>
+            </div>
+
+            <h2 id="reading">Reading Text/CSV</h2>
+            <p>Using `BufferedReader` is efficient for reading large log files or simple CSV data.</p>
+            <div class="relative group my-6">
+                <button onclick="copyCode(this)" class="copy-btn">Copy</button>
+                <pre class="bg-gray-800 text-gray-100 overflow-x-auto rounded-lg p-4"><code class="language-java">BufferedReader br = new BufferedReader(new FileReader("data.csv"));
+String line;
+while ((line = br.readLine()) != null) {
+    System.out.println(line); // Prints each row
+}
+br.close();</code></pre>
+            </div>
+
+            <h2 id="excel">Excel Interaction</h2>
+            <p>Java does not support Excel natively. We use the <strong>Apache POI</strong> library.</p>
+            <p><strong>Common Mistakes:</strong> Forgetting to close the workbook, resulting in memory leaks.</p>
+
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg border-l-4 border-yellow-500 mb-6">
+                <strong>Note:</strong> Apache POI requires adding dependencies to your `pom.xml`.
+            </div>
+
+            <div class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex justify-between">
+                <div>
+                    <a href="/articles/java/java-exception-handling.html"
+                        class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center">
+                        <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+                        </svg>
+                        Previous: Exception Handling
+                    </a>
+                </div>
+                <div>
+                    <a href="/articles/java/java-strings.html"
+                        class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center">
+                        Next: String Manipulation
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

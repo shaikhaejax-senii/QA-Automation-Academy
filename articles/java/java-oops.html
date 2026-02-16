@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java OOP Concepts for Automation - QA Automation Academy</title>
+    <meta name="description"
+        content="Master Object Oriented Programming in Java. Learn Class, Object, Inheritance, Polymorphism, Abstraction, and Encapsulation with Selenium examples.">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+
+    <div id="header-container"></div>
+
+    <div class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex items-start gap-8">
+
+        <!-- Sidebar Toggle (Mobile) -->
+        <div class="lg:hidden w-full mb-4">
+            <a href="/category/java.html"
+                class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <svg class="mr-1 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Java
+            </a>
+        </div>
+
+        <!-- TOC Sidebar (Sticky) -->
+        <aside class="hidden lg:block w-64 flex-shrink-0 sticky top-24">
+            <nav class="space-y-1" aria-label="Table of Contents">
+                <h4 class="px-3 text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
+                    On this page
+                </h4>
+                <a href="#whatis"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    What is OOP?
+                </a>
+                <a href="#inheritance"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Inheritance
+                </a>
+                <a href="#polymorphism"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Polymorphism
+                </a>
+                <a href="#encapsulation"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Encapsulation
+                </a>
+                <a href="#example"
+                    class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-l-2 hover:border-blue-600">
+                    Real Time Example
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content (Article) -->
+        <main class="flex-1 min-w-0 prose dark:prose-invert max-w-none">
+
+            <!-- Breadcrumbs -->
+            <nav class="flex mb-4" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-4">
+                    <li>
+                        <a href="/" class="text-gray-400 hover:text-gray-500">
+                            Home
+                        </a>
+                    </li>
+                    <li class="breadcrumb-divider"></li>
+                    <li>
+                        <a href="/category/java.html"
+                            class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">Java</a>
+                    </li>
+                    <li class="breadcrumb-divider"></li>
+                    <li>
+                        <span class="text-gray-900 dark:text-white font-medium">OOP Concepts</span>
+                    </li>
+                </ol>
+            </nav>
+
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Object Oriented Programming (OOP) in Java
+            </h1>
+
+            <p class="lead text-xl text-gray-600 dark:text-gray-300 mb-8">
+                Object Oriented Programming (OOP) is the backbone of Java and almost all modern test automation
+                frameworks. Understanding these concepts is non-negotiable for a QA Engineer.
+            </p>
+
+            <h2 id="whatis">What is OOP?</h2>
+            <p>
+                OOP is a programming paradigm based on the concept of "objects", which contain data (fields) and code
+                (methods). It aims to implement real-world entities like inheritance, hiding, polymorphism, etc. in
+                programming.
+            </p>
+
+            <h2 id="inheritance">Inheritance</h2>
+            <p>
+                Inheritance is a mechanism where one class acquires the properties and behaviors of a parent class.
+            </p>
+            <p><strong>Why use it in Automation?</strong> To create a `BaseTest` class that contains setup
+                (`@BeforeMethod`) and teardown (`@AfterMethod`) logic. All test classes extend this `BaseTest`.
+            </p>
+
+            <div class="relative group my-6">
+                <button onclick="copyCode(this)" class="copy-btn">Copy</button>
+                <pre class="bg-gray-800 text-gray-100 overflow-x-auto rounded-lg p-4"><code class="language-java">public class BaseTest {
+    WebDriver driver;
+    
+    public void setup() {
+        driver = new ChromeDriver();
+    }
+}
+
+public class LoginTest extends BaseTest {
+    @Test
+    public void validLogin() {
+        setup(); // Inherited method
+        // ...
+    }
+}</code></pre>
+            </div>
+
+            <h2 id="polymorphism">Polymorphism</h2>
+            <p>Polymorphism allows us to perform a single action in different ways. In Java, we use Method Overloading
+                and Overriding.</p>
+
+            <h3 class="text-xl font-semibold mt-4">Real Time Example</h3>
+            <p>
+                In Selenium, `WebDriver driver = new ChromeDriver();` is a perfect example of <strong>Runtime
+                    Polymorphism</strong>. The reference variable is of type `WebDriver` (Interface), but the object is
+                `ChromeDriver`. This allows us to easily switch to `FirefoxDriver` without changing code everywhere.
+            </p>
+
+            <h2 id="encapsulation">Encapsulation</h2>
+            <p>
+                Wrapping code and data together into a single unit. We use private fields and public getters/setters.
+            </p>
+            <p><strong>Automation Use Case:</strong> Page Object Model (POM). We declare WebElements as `private` and
+                provide public methods to interact with them, preventing tests from directly manipulating elements.
+            </p>
+
+            <h2 id="example">Real Time Example</h2>
+            <div class="relative group my-6">
+                <button onclick="copyCode(this)" class="copy-btn">Copy</button>
+                <pre class="bg-gray-800 text-gray-100 overflow-x-auto rounded-lg p-4"><code class="language-java">public class LoginPage {
+    // Encapsulation: Private elements
+    private By username = By.id("user");
+    private By password = By.id("pass");
+    
+    // Public method to interact
+    public void login(String u, String p) {
+        driver.findElement(username).sendKeys(u);
+        driver.findElement(password).sendKeys(p);
+    }
+}</code></pre>
+            </div>
+
+            <h2 id="mistakes">Common Mistakes</h2>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                <li>Assuming every class needs to extend `BaseTest`.</li>
+                <li>Making all variables `public static` just to access them easily (destroys parallel execution).</li>
+            </ul>
+
+            <h2 id="interview">Interview Questions</h2>
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border-l-4 border-blue-600 my-6">
+                <ul class="space-y-4">
+                    <li><strong>Q: Can we override static methods?</strong><br> No, static methods are bound to the
+                        class, not object. This is called Method Hiding.</li>
+                    <li><strong>Q: Why is Multiple Inheritance not supported in Java?</strong><br> To avoid the "Diamond
+                        Problem" of ambiguity.</li>
+                    <li><strong>Q: What is the difference between Abstract Class and Interface?</strong><br> Abstract
+                        class can have state (variables), Interfaces cannot (only constants).</li>
+                </ul>
+            </div>
+
+            <div class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex justify-between">
+                <div>
+                    <a href="/articles/java/java-basics.html"
+                        class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center">
+                        <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+                        </svg>
+                        Previous: Java Basics
+                    </a>
+                </div>
+                <div>
+                    <a href="/articles/java/java-collections.html"
+                        class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center">
+                        Next: Collections
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    /* slate-300 */
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background-color: #475569;
+    /* slate-600 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #94a3b8;
+    /* slate-400 */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background-color: #64748b;
+    /* slate-500 */
+}
+
+/* Code Block Styling */
+pre {
+    position: relative;
+    padding: 1rem;
+    padding-top: 2.5rem;
+    /* Space for copy button */
+    border-radius: 0.5rem;
+    overflow-x: auto;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s;
+}
+
+.copy-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Base Styles */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    /* For sticky header */
+}
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Breadcrumb Divider */
+.breadcrumb-divider::after {
+    content: '/';
+    margin: 0 0.5rem;
+    color: #9ca3af;
+}
+
+/* Article Typography Overrides */
+.prose h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.prose p {
+    margin-bottom: 1.25rem;
+    line-height: 1.75;
+}
+
+.prose ul,
+.prose ol {
+    margin-bottom: 1.25rem;
+}
+
+.prose li {
+    margin-bottom: 0.5rem;
+}
